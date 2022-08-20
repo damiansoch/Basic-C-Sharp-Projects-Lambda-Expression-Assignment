@@ -10,7 +10,7 @@ namespace Lambda_Expression_Assignment
         {
 
             {
-
+                //----------------------------------------------------------------------1
                 List<Employee> Employees = new List<Employee>()
                 {
                     new Employee
@@ -85,6 +85,7 @@ namespace Lambda_Expression_Assignment
 
                 };
 
+                //-------------------------------------------------------------------------2
                 // using foreach loop
                 int counter = 0;
                 foreach (Employee employee in Employees)
@@ -96,6 +97,7 @@ namespace Lambda_Expression_Assignment
                 }
                 Console.WriteLine("There is {0} employees called Joe!, -> Foreach used!", counter);
 
+                //-------------------------------------------------------------------------3
                 //using lambda function
                 int count = Employees.Count(x => x.FirstName == "Joe");
                 Console.WriteLine("There is {0} employees called Joe!, -> Lambda (Count) function used!", count);
@@ -104,8 +106,21 @@ namespace Lambda_Expression_Assignment
 
                 int count1 = (Employees.FindAll(x => x.FirstName == "Joe")).Count();
 
-                Console.WriteLine("There is {0} employees called Joe!, -> Lambda (FindAll) function used!", count1);
+                Console.WriteLine("There is {0} employees called Joe!, -> Lambda (FindAll) function used! \n", count1);
 
+
+                //-------------------------------------------------------------------------4
+
+
+                List<Employee> EmployeesID = new List<Employee>();
+                EmployeesID = Employees.FindAll(y => (y.Id > 5));
+
+                Console.WriteLine("Employees with Id greater than 5 :");
+
+                foreach (Employee employee1 in EmployeesID)
+                {
+                    Console.WriteLine("{0} {1} {2}", employee1.Id, employee1.FirstName, employee1.LastName);
+                }
 
                 Console.ReadKey();
 
